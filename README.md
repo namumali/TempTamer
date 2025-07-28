@@ -1,34 +1,79 @@
-# TempTamer 🌡️
+*** TempTamer: Urban Heat Zone Analysis and Cooling Strategy Recommendations ***
 
-TempTamer is an AI-powered platform designed to analyze urban heat zones using satellite data and provide actionable, data-driven strategies to mitigate Urban Heat Island (UHI) effects through sustainable urban planning.
+# Overview
 
-## Features 🚀
+   TempTamer is an AI-driven project designed to identify urban heat zones using satellite data and provide actionable cooling strategy recommendations. Leveraging Google Earth Engine (GEE) for land surface temperature (LST) extraction and Google Gemini for AI-generated advisory, TempTamer helps urban planners and environmental scientists mitigate heat island effects.
 
-- **Urban Heat Zone Mapping**: Visualize heat-prone areas on an interactive map.
-- **AI-Generated Recommendations**: Leverage AI to generate sustainability strategies tailored to specific regions.
-- **Region-Specific Insights**: Detailed recommendations for mitigating UHI effects, including assumptions and estimated impacts.
-- **Customizable Data Inputs**: Supports GeoJSON data for heat zones and Markdown-based AI outputs for recommendations.
-- **Sustainability Planning**: Provides strategies such as afforestation, cool pavements, green roofs, and urban design improvements.
+# Features
 
-## How It Works 🛠️
+   LST Extraction: Calculates land surface temperature over user-defined regions.
 
-1. **Data Input**:
-   - Heat zone data is loaded from a GeoJSON file (`west_coast_heat_zones.json`).
-   - AI-generated recommendations are read from a Markdown file (`gemini_output.md`).
+   Urban Heat Zone Mapping: Visualizes high-heat areas with interactive maps.
 
-2. **Processing**:
-   - The platform uses Flask to render a web-based UI.
-   - AI recommendations are parsed and displayed in a structured format, including tables for region-specific insights.
+   AI-Driven Recommendations: Uses Gemini to generate tailored cooling strategies (e.g., vegetation planting, reflective materials).
 
-3. **Visualization**:
-   - A map thumbnail (`map_thumbnail.png`) is displayed to provide a visual overview of urban heat zones.
-   - Recommendations are categorized into region-specific and strategic insights.
+   Notebook Workflow: Fully documented Jupyter notebook to reproduce analysis in Google Colab or local environment.
 
-## Installation 🖥️
+# Getting Started
 
-Follow these steps to set up and run TempTamer locally:
+Prerequisites
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repo/TempTamer.git
+   Python 3.8+
+
+   Google Earth Engine account (sign up at https://earthengine.google.com)
+
+   Google Cloud SDK (for GEE authentication) or Colab environment
+
+   Gemini API access (provide GEMINI_API_KEY)
+
+# Installation
+
+Clone this repository:
+
+   git clone https://github.com/your-username/TempTamer.git
    cd TempTamer
+
+# Create and activate a virtual environment:
+
+   python -m venv venv
+   source venv/bin/activate     # Linux/macOS
+   venv\Scripts\activate      # Windows
+
+# Install dependencies:
+
+   pip install -r requirements.txt
+
+   Authenticate with Google Earth Engine:
+
+   earthengine authenticate
+
+# Usage
+
+Google Colab
+
+Open TempTamer.ipynb in Google Colab.
+
+Set environment variables in the first cell:
+
+   import os
+   os.environ['GEMINI_API_KEY'] = 'your_gemini_api_key'
+
+Run all cells sequentially to reproduce the analysis and generate maps.
+
+Local Jupyter Notebook
+
+Start Jupyter:
+
+   jupyter notebook
+
+Open TempTamer.ipynb.
+
+Ensure GEE credentials and GEMINI_API_KEY are set in your shell or notebook.
+
+# File Structure
+   TempTamer/
+   ├── TempTamer.ipynb       # Main analysis notebook
+   ├── requirements.txt      # Python dependencies
+   ├── data/                 # (Optional) sample data or region definitions
+   ├── maps/                 # Generated heat zone maps
+   └── README.md             # Project documentation
